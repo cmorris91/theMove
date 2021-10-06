@@ -25,7 +25,7 @@ function Footer () {
           </ul> 
         </div>
         <div className="footer-section col-xs-6 col-md-3">
-          <ul class="footer-links">
+          <ul className="footer-links">
           <h6>Quick Links</h6>
             <li><a href="/">Home</a></li>
             <li><a href="/Event">Events</a></li>

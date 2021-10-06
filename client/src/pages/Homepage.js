@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import PlaceSearch from "../components/PlaceSearch";
-import { Header, Button} from 'semantic-ui-react';
+import Login from "./login"; 
+import { Redirect } from "react-router-dom";
+// import { Header, Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
 import "./style.css"
 
@@ -34,12 +36,9 @@ class Homepage extends Component {
     render () {
     return (
         <div className="homepage">
-            
-
-                
                 <div className="home-container">
                     <div className="home-feature">
-                        <Link to={"/create"} >
+                        <Link to={"/create"}>
                             <button className="button">Create Event</button>
                         </Link>
                    </div>
@@ -52,10 +51,6 @@ class Homepage extends Component {
                         <PlaceSearch />
                     </div>
                 </div>
-              
-
-            
-            
         </div>
     )
     }

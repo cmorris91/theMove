@@ -29,7 +29,7 @@ return (
       Bookmark
     </a>
     {!localStorage.getItem('user') ? 
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="/login">
         Login/Signup
       </a>
       : 

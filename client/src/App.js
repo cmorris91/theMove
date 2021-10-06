@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { BrowserRouter as Router, Redirect, Route, Switch, } from "react-router-dom";
+import { BrowserRouter as Router, Prompt, Redirect, Route, Switch, } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,7 +10,7 @@ import Login from "./pages/login";
 import SeacrhCheckIn from "../src/components/SearchCheckIn"
 import EventDetail from "./pages/EventDetails"
 import Bookmark from "./pages/Bookmark";
-import { Form } from "semantic-ui-react";
+// import { Form } from "semantic-ui-react";
 import Logo from "./components/logo";
 
 
@@ -35,14 +35,15 @@ function App() {
        
         {/* <Wrapper> */}
         <Switch>
-          <Route exact path="/">{localStorage.getItem('user') ? <Redirect push to="/home" /> : <Login/>}</Route>
-          <Route exact path="/home">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Homepage/>}</Route> 
-          <Route exact path="/check-in/:id">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Checkin/>}</Route>
-          <Route exact path="/searchCheck-in"> {!localStorage.getItem('user') ? <Redirect push to="/" /> : <SeacrhCheckIn/>}</Route>
-          <Route exact path="/event">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Event/>}</Route>
-          <Route exact path="/create">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Create/>}</Route>
-          <Route exact path="/event/:id">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <EventDetail/>}</Route>
-          <Route exact path="/bookmark">{!localStorage.getItem('user') ? <Redirect push to="/" /> : <Bookmark/>}</Route>
+          <Route exact path="/login">{localStorage.getItem('user') ? <Redirect push to="/home" /> : <Login/>}</Route>
+          <Route exact path="/"><Homepage/></Route> 
+          {/* <Route exact path="/login"><Login/></Route>  */}
+          <Route exact path="/check-in/:id">{!localStorage.getItem('user') ? <Redirect push to="/login" /> : <Checkin/>}</Route>
+          <Route exact path="/searchCheck-in"> {!localStorage.getItem('user') ? <Redirect push to="/login" /> : <SeacrhCheckIn/>}</Route>
+          <Route exact path="/event">{!localStorage.getItem('user') ? <Redirect push to="/login"/> : <Event/>}</Route>
+          <Route exact path="/create">{!localStorage.getItem('user') ? <Redirect push to="/login"/> : <Create/>}</Route>
+          <Route exact path="/event/:id">{!localStorage.getItem('user') ? <Redirect push to="/login" /> : <EventDetail/>}</Route>
+          <Route exact path="/bookmark">{!localStorage.getItem('user') ? <Redirect push to="/login" /> : <Bookmark/>}</Route>
 
           </Switch>
 
